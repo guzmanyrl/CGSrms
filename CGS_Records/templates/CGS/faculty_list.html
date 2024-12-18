@@ -1,0 +1,26 @@
+{% for faculty in faculty %}
+<tr id="faculty-{{ faculty.faculty_id }}" class="faculty-row">
+  <td>{{ faculty.faculty_id }}</td>
+  <td>{{ faculty.first_name }}</td>
+  <td>{{ faculty.middle_name }}</td> 
+  <td>{{ faculty.last_name }}</td>
+  <td>{{ faculty.gender }}</td>
+  
+  <td>
+    {% if faculty.faculty_id %}
+      <button class="btn btn-primary btn-sm" 
+        hx-get="{% url 'CGS_Records:edit_faculty' faculty_id=faculty.faculty_id %}" 
+        hx-target="#faculty-dialog">
+        Edit
+      </button>
+     
+
+      <a href="{% url 'CGS_Records:manage_faculty_files' faculty_id=faculty.faculty_id %}" class="btn btn-warning btn-sm">
+        <i class="fa fa-file"></i> Files
+      </a>
+    {% else %}
+      <span class="text-danger">Missing ID</span>
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}

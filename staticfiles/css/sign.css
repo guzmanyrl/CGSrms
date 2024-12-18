@@ -1,0 +1,202 @@
+.all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../images/CGS.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#successCheckmark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 100px;
+    height: auto;
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../images/CGS.jpg') no-repeat center center/cover;
+}
+
+/* Wrapper for the Form */
+.wrapper1 {
+    width: 420px;
+    padding: 40px 30px;
+    background: rgba(3, 22, 5, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.wrapper1 h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #0deed0;
+}
+
+/* Input Box Styling */
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+.input-box input:focus {
+    border-color: #0deed0;
+}
+
+/* Icon Styling inside the input box */
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Custom Icons */
+.user-icon::before {
+    content: url('../images/user-circle.svg');
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 10px;
+}
+
+.email-icon::before {
+    content: url('../images/envelope-at-fill.svg');
+    width: 15px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+}
+
+.lock-icon::before {
+    content: url('../images/key.svg');
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 10px;
+}
+
+/* Submit Button Styling */
+.control {
+    margin-top: 20px;
+}
+
+.btn-reg {
+    width: 100%;
+    height: 50px;
+    background-color: #0deed0;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+.btn-reg:hover {
+    background-color: #0470eb;
+    color: #fff;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+/* Error Messages */
+.form-errors {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+}
+
+/* Alert Messages Styling */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Animating messages fading */
+.messages {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+}
+
+.messages.hidden {
+    opacity: 0;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .wrapper1 {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .btn-reg {
+        font-size: 14px;
+    }
+}
+
+/*Loading Icon */
+

@@ -1,0 +1,75 @@
+{% load widget_tweaks %}
+{% with WIDGET_ERROR_CLASS='is-invalid' %}
+<form hx-post="{{ request.path }}" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}' class="modal-content" enctype="multipart/form-data">
+  <div class="modal-header">
+    <h5 class="modal-title">Masteral Student Information</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <!-- First Row -->
+    <div class="row mb-3">
+      <div class="col">
+        <label for="{{ form.first_name.id_for_label }}" class="form-label-fname">First Name</label>
+        {% render_field form.first_name class="form-control" placeholder="----" %}
+        <div class="invalid-feedback">{{ form.first_name.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.middle_name.id_for_label }}" class="form-label-midname">Middle Name</label>
+        {% render_field form.middle_name class="form-control" placeholder="----" %}
+        <div class="invalid-feedback">{{ form.middle_name.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.last_name.id_for_label }}" class="form-label-lname">Last Name</label>
+        {% render_field form.last_name class="form-control" placeholder="----" %}
+        <div class="invalid-feedback">{{ form.last_name.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.student_id.id_for_label }}" class="form-label-id">Student ID</label>
+        {% render_field form.student_id class="form-control" placeholder="12345" %}
+        <div class="invalid-feedback">{{ form.student_id.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.gender.id_for_label }}" class="form-label-gender">Gender</label>
+        {% render_field form.gender class="form-control" %}
+        <div class="invalid-feedback">{{ form.gender.errors|first }}</div>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="row mb-3">
+      <div class="col">
+        <label for="{{ form.semesters.id_for_label }}" class="form-label-semesters">Semester</label>
+        {% render_field form.semesters class="form-control" %}
+        <div class="invalid-feedback">{{ form.semesters.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.school_year.id_for_label }}" class="form-label-sy">School Year</label>
+        {% render_field form.school_year class="form-control" %}
+        <div class="invalid-feedback">{{ form.school_year.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.programs.id_for_label }}" class="form-label-progs">Program</label>
+        {% render_field form.programs class="form-control" %}
+        <div class="invalid-feedback">{{ form.programs.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.majors.id_for_label }}" class="form-label-majors">Major</label>
+        {% render_field form.majors class="form-control" %}
+        <div class="invalid-feedback">{{ form.majors.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.student_type.id_for_label }}" class="form-label-studenttype">Student Type</label>
+        {% render_field form.student_type class="form-control" %}
+        <div class="invalid-feedback">{{ form.student_type.errors|first }}</div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+    
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      Cancel
+    </button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
+{% endwith %}

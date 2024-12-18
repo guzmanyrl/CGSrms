@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master of Management Students List</title>
+    <link rel="stylesheet" href="{% static 'css/doctoral-generate-report.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/PIT_Logo1.png' %}">
+</head>
+<body>
+    <div class="pdf-body">
+        <div class="doctoral-upper-title">
+            <div class="header-container">
+                <img src="{% static 'images/pit_logo1.png' %}" alt="PIT Logo" class="pdf-pit-logo">
+                <img src="{% static 'images/CGS_logo.png' %}" alt="CGS Logo" class="pdf-cgs-logo">
+                <div class="text-palompon">
+                    <p class="Republic-title">Republic of the Philippines</p>
+                    <p class="bold-title">PALOMPON INSTITUTE OF TECHNOLOGY</p>
+                    <p class="Leyte-title">Palompon, Leyte</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1 class="student-title">Master of Management Students</h1>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Semester</th>
+                    <th>School Year</th>
+                    <th>Student Type</th>
+                    <th>Programs</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for mstudent in mstudents %}
+                <tr>
+                    <td>{{ mstudent.student_id }}</td>
+                    <td>{{ mstudent.last_name }}</td>
+                    <td>{{ mstudent.first_name }}</td>
+                    <td>{{ mstudent.middle_name }}</td>
+                    <td>{{ mstudent.semesters }}</td>
+                    <td>{{ mstudent.school_year }}</td>
+                    <td>{{ mstudent.student_type }}</td>
+                     <td>{{ mstudent.programs }}</td>
+                    
+                    
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="8">No students found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        {% if not is_pdf %}
+        <button class="btb-pdf">
+            <img src="{% static 'images/filetype-pdf.svg' %}" alt="PDF Icon" class="pdf-icon">
+            <a href="?download=pdf" class="convert-pdf" target="_blank">View as PDF</a>
+        </button>
+        {% endif %}
+    </div>
+</body>
+</html>

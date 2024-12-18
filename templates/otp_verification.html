@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'images/PIT_Logo1.png' %}">
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
+</head>
+<body>
+    <div class="wrapper1" id="wrapper1">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="{{ message.tags }}" id="message" data-redirect-url="{% url 'accounts:home_login' %}">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" action="{% url 'accounts:otp_verify' username=username %}">
+            {% csrf_token %}
+            <h1>Enter OTP</h1>
+            <h4>For verification</h4>
+            <div class="input-box">
+                <label for="otp">One-Time Password (OTP)</label>
+                <input type="text" name="otp" placeholder="Enter OTP Here" required>
+            </div>
+            <button type="submit" class="btn-reg">Verify OTP</button>
+        </form>
+        
+        <p>OTP expires in <span id="countdown">{{ remaining_time }}</span> seconds.</p>
+
+        <!-- Hidden input to store registration URL -->
+        <input type="hidden" id="registrationUrl" data-url="{% url 'accounts:register' %}">
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
+    <script src="{% static 'js/timer.js' %}"></script>
+</body>
+</html>

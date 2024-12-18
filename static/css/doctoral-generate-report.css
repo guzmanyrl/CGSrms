@@ -1,0 +1,125 @@
+@page {
+    size: A4;
+    margin: 20mm;
+    /* Adjust the margins as needed */
+}
+
+
+.pdf-body {
+    position: relative;
+    margin-top: auto;
+    width: 90%;
+    margin: auto;
+}
+
+.doctoral-upper-title {
+    margin-bottom: 20px;
+}
+
+/* Flexbox container for header */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.pdf-pit-logo {
+    width: 4em;
+    position: absolute;
+    margin-right: auto;
+    height: auto;
+    
+}
+
+/* CGS Logo (right side) */
+.pdf-cgs-logo {
+    
+    width: 5em;
+    /* Adjust the width */
+    height: auto;
+    position: absolute;
+    right: 0;
+    margin-left: auto;
+
+    top: -0rem;
+  
+   
+   
+    
+}
+
+/* Adjust text alignment */
+.text-palompon {
+    position: relative;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 60%;
+    margin: 0 auto;
+    top: 0em;
+}
+
+/* Text styles for Republic of the Philippines and other titles */
+.Republic-title,
+.Leyte-title {
+    font-size: 10px;
+}
+
+.bold-title {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Title for student section */
+.student-title {
+    font-size: 16pt;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.convert-pdf {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration-line: none;
+    color: black;
+}
+
+
+.table th,
+.table td {
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: left;
+    font-size: 10pt;
+    /* Adjust font size */
+}
+
+/* Print-specific styles */
+@media print {
+    body {
+        font-size: 10pt;
+    }
+
+    .table th,
+    .table td {
+        font-size: 10pt;
+    }
+
+    .pdf-body {
+        transform: scale(0.9);
+        /* Slightly scale down for better fit */
+        transform-origin: top left;
+    }
+
+    .student-title {
+        font-size: 12pt;
+    }
+}

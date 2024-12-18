@@ -1,0 +1,435 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../images/CGS.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.control{
+    position: absolute;
+    top: 65%;
+}
+
+.wrapper {
+    width: 500px;
+    height: 530px;
+    background: rgba(3, 22, 5, 0.6);
+    /* Semi-transparent background */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(9px);
+    color: #fff;
+    border-radius: 8px;
+    padding: 30px 40px;
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 20px 45px 20px 20px;
+    outline: none;
+}
+
+.input-box input::placeholder {
+    color: #0deed0;
+}
+
+.input-box input:focus {
+    border-color: #0deed0;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.wrapper .btn {
+    width: 92%;
+    height: 45px;
+    background: #ffffff;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+
+
+.wrapper .btn:hover {
+    background: #0470eb;
+    color: #000000;
+}
+
+.icon {
+    width: 5.10em;
+    /* Adjust size in relation to font size */
+    height: 1.7em;
+    /* Adjust height accordingly */
+    position: absolute;
+    top: 17%;
+    left: 100px;
+}
+
+.icon-admin {
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 26px;
+    /* Adjust the height as needed */
+    margin-right: 8px;
+    /* Space between icon and text */
+    vertical-align: middle;
+    /* Align the icon with the middle of the text */
+    position: relative;
+    /* Allow positioning relative to parent if needed */
+    top: 2px;
+    left: 90px;
+   
+}
+
+.btn-admin {
+    padding: 8px 12px;     /* Adjust padding for a button-like feel */
+    background-color: none; /* Example background color */
+    color: rgb(104, 104, 109);          /* Text color */
+    text-decoration: none;  /* Remove underline */
+    border-radius: 4px;    /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    position: absolute;
+    top: 450px;
+    left: 320px;
+}
+
+.btn-admin:hover {
+    background-color: none; /* Darker background on hover */
+}
+
+.wrapper .btn-register {
+    text-decoration: none;
+    width: 100% !important;
+    height: 45px;
+    /* Adjusted height */
+    padding: 12px 178px;
+    /* Add padding for better size */
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 40px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    color: #333333 !important;
+    font-weight: 600 !important;
+    transition: background 0.3s ease, color 0.3s ease !important;
+    box-sizing: border-box;
+    /* Ensure padding and border are included in size */
+    position: relative;
+    top: 20px;
+    
+
+}
+
+.icon-reg {
+    width: 5.10em;
+    /* Adjust size in relation to font size */
+    height: 1.7em;
+    /* Adjust height accordingly */
+    position: absolute;
+    top: 17%;
+    left: 100px;
+}
+
+.wrapper .btn-register:hover {
+    background: #0470eb !important;
+    color: #000000 !important;
+}
+
+.authorize-text {
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    color: #f31717;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo {
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 20px;
+    left: 15%;
+    transform: translateX(-50%);
+}
+
+.input-box .user-icon::before {
+    content: url('../images/user-circle.svg');
+    position: absolute;
+    right: 20px;
+    top: 1cap;
+    transform: translateY(-50%);
+    width: 20px;
+    /* Adjust size */
+    height: 20px;
+    /* Adjust size */
+}
+
+.input-box .lock-icon::before {
+    content: url('../images/key.svg');
+    position: absolute;
+    right: 20px;
+    top: 1cap;
+    transform: translateY(-50%);
+    width: 20px;
+    /* Adjust size */
+    height: 20px;
+    /* Adjust size */
+}
+
+/*table*/
+
+table tr td {
+    vertical-align: middle;
+}
+
+td button {
+    margin: 5px;
+}
+
+td button i {
+    font-size: 20px;
+}
+
+
+.modal-header {
+    background: #0d6efd;
+    color: #fff;
+}
+
+.modal-body form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.modal-body form .imgholder {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.imgholder .upload {
+    position: absolute;
+    bottom: 0;
+    left: 10;
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.upload i {
+    color: #fff;
+    font-size: 35px;
+}
+
+.imgholder:hover .upload {
+    display: flex;
+}
+
+.imgholder .upload input {
+    display: none;
+}
+
+.modal-body form .inputField {
+    flex-basis: 68%;
+    border-left: 5px groove blue;
+    padding-left: 20px;
+}
+
+form .inputField>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form .inputField>div label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#userForm form .inputField>div label::after {
+    content: "*";
+    color: red;
+}
+
+form .inputField>div input {
+    width: 75%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid blue;
+}
+
+.modal-footer .submit {
+    font-size: 18px;
+}
+
+
+#readData form .inputField>div input {
+    color: #000;
+    font-size: 18px;
+}
+
+.messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.messages li {
+    padding: 10px;
+    background-color: #f8d7da;
+    /* Light red background */
+    color: #721c24;
+    /* Dark red text */
+    border: 1px solid #f5c6cb;
+    /* Light red border */
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.messages .alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* messages */
+
+.messages {
+    opacity: 1;               /* Fully visible */
+    transition: opacity 3s ease-in-out; /* Transition effect for opacity */
+    
+}
+
+/* Class to apply when hiding the messages */
+.messages.hidden {
+    opacity: 0;               /* Fully transparent */
+}
+
+#successCheckmark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+/* CSS to center the loading icon */
+.loading-icon {
+    position: fixed;
+    
+    /* Fixed positioning to stay centered in the viewport */
+    top: 50%;
+    /* Center vertically */
+    left: 50%;
+    /* Center horizontally */
+    transform: translate(-50%, -50%);
+    /* Adjust position to truly center */
+    z-index: 1000;
+    /* Ensure it appears above other content */
+    display: none;
+    /* Initially hidden */
+}
+
+.btn-reg {
+    width: 100%;
+    height: 50px;
+    background-color: #0deed0;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+/* Loading Icon Wrapper */
+.loading-icon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 60px;
+    /* Overall size of the loading wrapper */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Loading GIF Image */
+.loading-icon img {
+    max-width: 90%;
+    /* Scales within the container */
+    max-height: 90%;
+}

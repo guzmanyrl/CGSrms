@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Facuty Page{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/faculty.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal_form.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="faculty-title">
+    <img src="{% static 'images/faculty-icon.svg' %}" alt="doctoral-icon" class='faculty-icon1'>
+    <h1>Faculty Information</h1>
+</div>
+
+
+
+<div class="btn-location">
+    <button type="button" class="btn btn-primary add-btn" 
+        hx-get="{% url 'CGS_Records:add_faculty' %}" 
+        hx-target="#faculty-dialog" data-bs-toggle="faculty-modal" data-bs-target="#faculty-modal">
+        <img src="{% static 'images/add-person.svg' %}" alt="Add person" class="add-person">
+        <label>Add Faculty</label>
+    </button>
+</div>
+
+<div class="search-group">
+    <input type="text" id="facultysearchInput" placeholder="Search by Faculty ID, First Name, or Last Name" onkeyup="filterTable()" aria-label="Search" />
+    <button class="btn-search btn btn-primary" type="button">
+        <img src="{% static 'images/search.svg' %}" alt="Search" class='search-icon'>
+    </button>
+</div>
+
+
+<div class="table-responsive">
+    <table  class="table table-primary text-center " >
+        <thead>
+            <tr class="bg-primary text-center">
+                <th>Faculty ID's</th>
+                <th>First Names</th>
+                <th>Last Names</th>
+                <th>Middle Names</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="faculty-list" 
+        hx-trigger="load, facultyListChanged from:body" 
+        hx-get="{% url 'CGS_Records:faculty_list' %}" 
+        hx-target="#faculty-list">
+            {% include 'CGS/faculty_list.html' %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Placeholder for the modal -->
+<div id="faculty-modal" class="modal fade" tabindex="-1">
+    <div id="faculty-dialog" class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <!-- Modal content will be dynamically loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Empty toast to show the message -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="faculty-toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div id="toast-body" class="toast-body"></div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <script src="{% static 'js/faculty-dialog.js' %}"></script>
+    <script src="{% static 'js/faculty-toast.js' %}"></script>
+    <script src="{% static 'js/faculty-search.js' %}"></script>
+    <script src="{% static 'js/form_capitalizer.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CGS RMS{% endblock title %}</title>
+
+    <link rel="icon" type="image/png" href="{% static 'images/PIT_Logo1.png' %}">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% block extra_body_styles %}
+        <style>
+            body {
+                zoom: 110%;
+            }
+        </style>
+    {% endblock %}
+    <header>
+        <div class="logo-container">
+            <a href="{% url 'CGS_Dashboard:dashboard' %}">
+                <img src="{% static 'images/CGS_logo.png' %}" alt="CGS RMS Logo" class="logo">
+            </a>
+            <a href="{% url 'CGS_Dashboard:dashboard' %}">
+                <h1>College of Graduate Studies Record Management System</h1>
+            </a>
+
+            <!-- Logout button -->
+            <button
+                hx-post="{% url 'accounts:logout' %}"  
+                hx-trigger="click"
+                hx-confirm="Are you sure you want to log out?"
+                hx-target="body"
+                hx-swap="none"
+                class="btn primary logout-button">
+                <span class="logout-label">Logout</span>
+                <img src="{% static 'images/logout-icon.svg' %}" alt="Logout Icon" class="shutdown-icon">
+            </button>
+        </div>
+
+        <nav class="sidebar">
+            <!-- Sidebar links -->
+            <div class="menu-text">
+                <a href="{% url 'CGS_Dashboard:dashboard' %}">
+                    Dashboard
+                    <img src="{% static 'images/dashboard-76.svg' %}" alt="Dashboard Icon" class="dashboard-icon">
+                </a>
+            </div>
+            <div class="rec">
+                <p>CGS Records</p>
+            </div>
+            <div class="menu-text1">
+                <a href="{% url 'CGS_Records:doctoral' %}">
+                    Doctoral
+                    <img src="{% static 'images/phd-icon.svg' %}" alt="Doctoral Icon" class="phd-icon">
+                </a>
+            </div>
+            <div class="menu-text2">
+                <a href="{% url 'CGS_Records:masteral' %}">
+                    Masteral
+                    <img src="{% static 'images/masteral.png' %}" alt="Masteral Icon" class="masteral-icon">
+                </a>
+            </div>
+            <div class="menu-text3">
+                <a href="{% url 'CGS_Records:faculty' %}">
+                    Faculty
+                    <img src="{% static 'images/faculty-icon.svg' %}" alt="Faculty Icon" class="faculty-icon">
+                </a>
+            </div>
+        </nav>
+
+        <nav class="navbar">
+            <img src="{% static 'images/list.svg' %}" alt="Menu Icon" class="list-icon" id="sidebar-toggle">
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <script src="{% static 'js/toggle.js' %}"></script>
+    <script src="{% static 'js/csrf_token.js' %}"></script>
+    <script src="{% static 'js/logout.js' %}"></script>
+    <script src="{% static 'js/hover.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+.alert-icon{
+    width: 40px;
+    height: auto;
+}
+
+.modal-body{
+    
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.modal-body p{
+    position: relative;
+    align-items: center;
+    left: 47px;
+    font-size: 20px;
+}

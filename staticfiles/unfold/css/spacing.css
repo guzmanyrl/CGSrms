@@ -1,0 +1,7 @@
+.model-group {
+    margin-bottom: 30px;  /* Adjust this value to your needs */
+}
+
+.model-group .model-link {
+    padding-left: 20px;
+}

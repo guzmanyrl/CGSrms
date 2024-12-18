@@ -1,0 +1,206 @@
+.masteral-title {
+    display: flex;
+    /* Ensure the container is a flex container */
+    flex-direction: row;
+    /* Align children (icon and title) horizontally */
+    align-items: center;
+    /* Center items vertically */
+    justify-content: flex-start;
+    /* Align items to the start (left) */
+    height: 90%;
+    /* Ensure it takes the full height */
+    border: 0.125rem solid #f1ecec;
+    /* Border styling */
+    box-shadow: 0px 0.25rem 0.5rem rgba(107, 104, 104, 0.2);
+    /* Shadow styling */
+    justify-content: center;
+
+}
+
+.masteral-title h1 {
+    font-size: 3em;
+    /* Font size for title */
+    font-family: 'Times New Roman', Times, serif;
+    /* Font family */
+    color: rgb(3, 110, 3);
+    /* Font color */
+    margin: 0;
+    /* Remove default margin */
+    display: flex;
+    /* Ensure it is also a flex container */
+    align-items: center;
+    /* Center content vertically in h1 */
+
+}
+
+.masters-icon {
+    width: 10vh;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+
+}
+
+.masteral-btn-location{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+
+    width: 100%;
+    padding-top: 2em;
+    padding-right: 2em;
+    margin-bottom: 0.5rem;
+}
+
+.add-person {
+    position: relative;
+    width: 2em;
+}
+
+.masteral-search-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+}
+
+.masteral-search-group input {
+    width: 300px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.btn-search {
+    width: 4em;
+    border-radius: none;
+    color: #0994f0;
+}
+
+.search-icon {
+    width: 25px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 20px;
+    /* Optional: Adjust font size */
+    color: #333;
+    /* Optional: Set a specific color */
+    display: block;
+    /* Ensures proper spacing in case content wraps */
+    margin-bottom: 5px;
+    /* Optional: Add spacing below the label */
+
+}
+
+.form-group {
+    margin-bottom: 2em;
+}
+
+.forms {
+    height: 5em;
+}
+
+#filterForm {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #f0fdf0;
+    /* Light Green background */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3cb371;
+    /* Medium Green border */
+}
+
+#filterForm select {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #2f4f2f;
+    /* Dark Green text */
+    background-color: #e6f7e6;
+    /* Light Green background */
+    border: 2px solid #3cb371;
+    border-radius: 8px;
+    appearance: none;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#filterForm select:focus {
+    outline: none;
+    border-color: #228b22;
+    /* Darker Green */
+    box-shadow: 0 0 5px #228b22;
+    background-color: #d4f4d4;
+    /* Slightly brighter green on focus */
+}
+
+#filterForm select option {
+    background-color: #e6f7e6;
+    color: #2f4f2f;
+}
+
+#filterForm button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #3cb371;
+    /* Button Green */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#filterForm button:hover {
+    background-color: #2e8b57;
+    /* Darker Green on hover */
+    transform: translateY(-2px);
+}
+
+#filterForm button:active {
+    background-color: #228b22;
+    transform: translateY(0);
+}
+
+
+/* Ensures the table header doesn't conflict with the sidebar */
+.table-responsive {
+    max-height: 500px;
+    overflow-y: auto;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    position: relative;
+    box-shadow: 0px 0.25rem 0.5rem rgba(231, 224, 224, 0.2);
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #007bff;
+    /* Adjust the color if necessary */
+    color: #ffffff;
+    white-space: nowrap;
+    
+}
+
+/* Adds ellipsis for overflowed content */
+th,
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,0 +1,6 @@
+
+<div class="modal" >
+    <p>Are you sure you want to logout?</p>
+    <button hx-get="{% url 'accounts:logout' %}" hx-target="body">Yes, Logout</button>
+    <button hx-trigger="click" hx-target="#logout-confirmation-modal" hx-swap="innerHTML">Cancel</button>
+</div>

@@ -1,0 +1,253 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9f8e6;
+    /* Soft green background */
+    color: #333;
+}
+
+.label {
+    color: #050303;
+}
+
+.main-content {
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h2 {
+    position: relative;
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #2e7d32;
+    /* Green color */
+    border-bottom: 3px solid #2e7d32;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+
+
+h2.text-center {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+    /* Allows for top/left adjustments */
+    top: 10px;
+    /* Adjust vertically */
+    left: 20px;
+    /* Adjust horizontally */
+    text-align: center;
+    /* Ensure it's centered if needed */
+}
+
+/* File Upload Form */
+.cat-select {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#file_category,
+#file_input {
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+#file_category:focus,
+#file_input:focus {
+    border-color: #388e3c;
+    /* Dark green focus */
+    box-shadow: 0 0 8px rgba(56, 142, 60, 0.3);
+}
+
+#upload_btn {
+    background-color: #388e3c;
+    /* Green background */
+    color: white;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#upload_btn:hover {
+    background-color: #2e7d32;
+    /* Darker green on hover */
+}
+
+.list-group {
+    margin-bottom: 25px;
+}
+
+.list-group-item {
+    background-color: #f9f9f9;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #e1f5e1;
+    /* Light green on hover */
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #388e3c;
+    font-weight: 500;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+h6 {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #050303;
+    margin-top: 1.5rem;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Delete Button Styles */
+.btn-danger {
+    background-color: #f44336;
+    /* Red background */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #e53935;
+    /* Darker red */
+}
+
+.trash-icon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+.xlsx-icon,
+.pdf-icon,
+.png-icon,
+.docx-icon,
+.jpeg-icon {
+    position: static;
+    width: 2.5rem;
+    height: auto;
+}
+
+.profile-picture-container {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    right: 10em;
+    bottom: 1em;
+    border: 0.200rem solid #666e67;
+    box-shadow: 0px 0.9rem 0.5rem rgba(107, 104, 104, 0.2);
+    
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    visibility: hidden;
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.edit-icon .edit-pencil {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    filter: invert(1);
+    
+
+}
+
+.profile-picture-container:hover .edit-icon {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+#excelModal .modal-dialog {
+    max-width: 90%;
+    /* Increase modal width */
+    height: 90vh;
+    /* Adjust modal height */
+    margin: auto;
+}
+
+#excelModal .modal-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#excelModal .modal-body {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 0;
+    /* Remove padding for better table fit */
+}
+
+#sheet-container table {
+    width: 100%;
+    table-layout: fixed;
+    /* Ensure columns fit in the table */
+}
+
+#sheet-container {
+    padding: 15px;
+    overflow-x: auto;
+}
+
+.a button {
+    font-weight: bold;
+    font-size: 12;
+}

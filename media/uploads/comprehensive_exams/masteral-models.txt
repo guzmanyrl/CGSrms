@@ -1,0 +1,810 @@
+MAEd_Educational_Management_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_EM_Foundation_Course,
+    MAEd_EM_Major_Course,
+    MAEd_EM_Cognates,
+    MAEd_EM_Comprehensive_Examination,
+    MAEd_EM_Thesis_Writting
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register(MAEd_EM_Foundation_Course)
+class MAEd_EM_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register(MAEd_EM_Major_Course)
+class MAEd_EM_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register(MAEd_EM_Cognates)
+class MAEd_EM_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register(MAEd_EM_Comprehensive_Examination)
+class MAEd_EM_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register(MAEd_EM_Thesis_Writting)
+class MAEd_EM_Thesis_WrittingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+MAEd_Elementary_Education_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_EED_Foundation_Course,
+    MAEd_EED_Major_Course,
+    MAEd_EED_Cognates,
+    MAEd_EED_Comprehensive_Examination,
+    MAEd_EED_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register(MAEd_EED_Foundation_Course)
+class MAEd_EED_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register(MAEd_EED_Major_Course)
+class MAEd_EED_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register(MAEd_EED_Cognates)
+class MAEd_EED_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register(MAEd_EED_Comprehensive_Examination)
+class MAEd_EED_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register(MAEd_EED_Thesis_Writing)
+class MAEd_EED_Thesis_WrittingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_English_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_English_Foundation_Course,
+    MAEd_English_Major_Course,
+    MAEd_English_Cognates,
+    MAEd_English_Comprehensive_Examination,
+    MAEd_English_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register(MAEd_English_Foundation_Course)
+class MAEd_English_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register(MAEd_English_Major_Course)
+class MAEd_English_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register(MAEd_English_Cognates)
+class MAEd_English_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register(MAEd_English_Comprehensive_Examination)
+class MAEd_English_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register(MAEd_English_Thesis_Writing)
+class MAEd_English_Thesis_WrittingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_Filipino_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_Filipino_Foundation_Course,
+    MAEd_Filipino_Major_Course,
+    MAEd_Filipino_Cognates,
+    MAEd_Filipino_Comprehensive_Examination,
+    MAEd_Filipino_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_Filipino_Foundation_Course)
+class MAEd_Filipino_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_Filipino_Major_Course)
+class MAEd_Filipino_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_Filipino_Cognates)
+class MAEd_Filipino_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_Filipino_Comprehensive_Examination)
+class MAEd_Filipino_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_Filipino_Thesis_Writing)
+class MAEd_Filipino_Thesis_WrittingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+MAEd_Home_Economics_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_HE_Foundation_Course,
+    MAEd_HE_Major_Course,
+    MAEd_HE_Cognates,
+    MAEd_HE_Comprehensive_Examination,
+    MAEd_HE_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_HE_Foundation_Course)
+class MAEd_HE_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_HE_Major_Course)
+class MAEd_HE_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_HE_Cognates)
+class MAEd_HE_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_HE_Comprehensive_Examination)
+class MAEd_HE_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_HE_Thesis_Writing)
+class MAEd_HE_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+MAEd_Industrial_Education_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_IE_Foundation_Course,
+    MAEd_IE_Major_Course,
+    MAEd_IE_Cognates,
+    MAEd_IE_Comprehensive_Examination,
+    MAEd_IE_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_IE_Foundation_Course)
+class MAEd_IE_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_IE_Major_Course)
+class MAEd_IE_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_IE_Cognates)
+class MAEd_IE_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_IE_Comprehensive_Examination)
+class MAEd_IE_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_IE_Thesis_Writing)
+class MAEd_IE_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_Marine_Engineering_and_Nautical_Science_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_MENS_Foundation_Course,
+    MAEd_MENS_Major_Course,
+    MAEd_MENS_Cognates,
+    MAEd_MENS_Comprehensive_Examination,
+    MAEd_MENS_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_MENS_Foundation_Course)
+class MAEd_MENS_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_MENS_Major_Course)
+class MAEd_MENS_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_MENS_Cognates)
+class MAEd_MENS_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_MENS_Comprehensive_Examination)
+class MAEd_MENS_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_MENS_Thesis_Writing)
+class MAEd_MENS_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_Mathematics_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_Math_Foundation_Course,
+    MAEd_Math_Major_Course,
+    MAEd_Math_Cognates,
+    MAEd_Math_Comprehensive_Examination,
+    MAEd_Math_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_Math_Foundation_Course)
+class MAEd_Math_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_Math_Major_Course)
+class MAEd_Math_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_Math_Cognates)
+class MAEd_Math_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_Math_Comprehensive_Examination)
+class MAEd_Math_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_Math_Thesis_Writing)
+class MAEd_Math_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_Physical_Education_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_PE_Foundation_Course,
+    MAEd_PE_Major_Course,
+    MAEd_PE_Cognates,
+    MAEd_PE_Comprehensive_Examination,
+    MAEd_PE_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_PE_Foundation_Course)
+class MAEd_PE_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_PE_Major_Course)
+class MAEd_PE_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_PE_Cognates)
+class MAEd_PE_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_PE_Comprehensive_Examination)
+class MAEd_PE_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_PE_Thesis_Writing)
+class MAEd_PE_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_Science_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_Science_Foundation_Course,
+    MAEd_Science_Major_Course,
+    MAEd_Science_Cognates,
+    MAEd_Science_Comprehensive_Examination,
+    MAEd_Science_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_Science_Foundation_Course)
+class MAEd_Science_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_Science_Major_Course)
+class MAEd_Science_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_Science_Cognates)
+class MAEd_Science_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_Science_Comprehensive_Examination)
+class MAEd_Science_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_Science_Thesis_Writing)
+class MAEd_Science_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+MAEd_Technology_Education_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MAEd_TE_Foundation_Course,
+    MAEd_TE_Major_Course,
+    MAEd_TE_Cognates,
+    MAEd_TE_Comprehensive_Examination,
+    MAEd_TE_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MAEd_TE_Foundation_Course)
+class MAEd_TE_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MAEd_TE_Major_Course)
+class MAEd_TE_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MAEd_TE_Cognates)
+class MAEd_TE_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MAEd_TE_Comprehensive_Examination)
+class MAEd_TE_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MAEd_TE_Thesis_Writing)
+class MAEd_TE_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+Master_of_Management_Evaluation_Grades
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin
+from .models import (
+    MM_Foundation_Course,
+    MM_Major_Course,
+    MM_Cognates,
+    MM_Comprehensive_Examination,
+    MM_Thesis_Writing
+)
+
+class ConditionalModelAdmin(ModelAdmin):
+    def has_module_permission(self, request):
+        # Allow module access only for superusers
+        return request.user.is_superuser
+
+    def has_view_permission(self, request, obj=None):
+        # Allow viewing only for superusers
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        # Allow deletion only for superusers
+        return request.user.is_superuser
+
+
+# Register Foundation Course
+@admin.register( MM_Foundation_Course)
+class MM_Foundation_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Major Course
+@admin.register( MM_Major_Course)
+class MM_Major_CourseAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Cognates
+@admin.register( MM_Cognates)
+class MM_CognatesAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Comprehensive Examination
+@admin.register( MM_Comprehensive_Examination)
+class MM_Comprehensive_ExaminationAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+# Register Dissertation Writing
+@admin.register( MM_Thesis_Writing)
+class MM_Thesis_WritingAdmin(ConditionalModelAdmin):
+    list_display = ('course_no', 'course_name', 'units')
+    search_fields = ('course_no', 'course_name')
+
+
+Masteral_Evaluated_Students
+
+from django.contrib import admin
+from unfold.admin import ModelAdmin  # Import Django-Unfold ModelAdmin
+from .models import (
+    MAEd_Educational_Management_Evaluation_of_Grades,
+    MAEd_Elementary_Education_Evaluation_of_Grades,
+    MAEd_English_Evaluation_of_Grades,
+    MAEd_Filipino_Evaluation_of_Grades,
+    MAEd_Home_Economics_Evaluation_of_Grades,
+    MAEd_Industrial_Education_Evaluation_of_Grades,
+    MAEd_Marine_Engineering_and_Nautical_Science_Evaluation_of_Grades,
+    MAEd_Mathematics_Evaluation_of_Grades,
+    MAEd_Physical_Education_Evaluation_of_Grades,
+    MAEd_Science_Education_Evaluation_of_Grades,
+    MAEd_Technology_Education_Evaluation_of_Grades,
+    Master_of_Management_Evaluation_of_Grades,
+)
+
+class CustomAdmin(ModelAdmin):  # Use Unfold's ModelAdmin
+    class Media:
+        css = {
+            'all': ('unfold/css/spacing.css',)  # Path to your custom CSS file
+        }
+
+# Registering the models in the admin panel with the same configuration
+@admin.register(MAEd_Educational_Management_Evaluation_of_Grades)
+class MAEd_Educational_Management_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Elementary_Education_Evaluation_of_Grades)
+class MAEd_Elementary_Education_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_English_Evaluation_of_Grades)
+class MAEd_English_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Filipino_Evaluation_of_Grades)
+class MAEd_Filipino_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Home_Economics_Evaluation_of_Grades)
+class MAEd_Home_Economics_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Industrial_Education_Evaluation_of_Grades)
+class MAEd_Industrial_Education_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Marine_Engineering_and_Nautical_Science_Evaluation_of_Grades)
+class MAEd_Marine_Engineering_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Mathematics_Evaluation_of_Grades)
+class MAEd_Mathematics_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Physical_Education_Evaluation_of_Grades)
+class MAEd_Physical_Education_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Science_Education_Evaluation_of_Grades)
+class MAEd_Science_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(MAEd_Technology_Education_Evaluation_of_Grades)
+class MAEd_Technology_Education_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+
+@admin.register(Master_of_Management_Evaluation_of_Grades)
+class Master_Of_Management_EvaluationAdmin(CustomAdmin):
+    list_display = ('student', 'rating', 'foundation_course', 'major_course', 'cognates', 'comprehensive_examination', 'thesis_writing')
+    search_fields = ('student__last_name', 'student__first_name')
+

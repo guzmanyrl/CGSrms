@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="{% static 'images/PIT_Logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    
+    <!-- Loading Icon -->
+    <div id="loadingIcon1" class="loading-icon" style="display: none;">
+        <img src="{% static 'images/loading.gif' %}" alt="Loading...">
+    </div>
+
+    <div class="wrapper1" id="wrapper1">
+        <!-- Register form with HTMX for form submission -->
+        <form method="POST" id="registerForm" hx-post="{% url 'accounts:register' %}" hx-target="#wrapper1" hx-swap="outerHTML"  onsubmit="showLoadingIcon()">
+            
+            <h1>Register</h1>
+            {% csrf_token %}
+            <!-- Username Field -->
+            <div class="input-box">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                <i class="user-icon"></i>
+                {% if form.username.errors %}
+                    <div class="text-danger">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+
+           <!-- First Name Field -->
+            <div class="input-box">
+                {{ form.first_name.label_tag }}
+                {{ form.first_name }}
+                <i class="user-icon"></i>
+                {% if form.first_name.errors %}
+                    <div class="text-danger">{{ form.first_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Middle Name Field -->
+            <div class="input-box">
+                {{ form.middle_name.label_tag }}
+                {{ form.middle_name }}
+                <i class="user-icon"></i>
+                {% if form.middle_name.errors %}
+                    <div class="text-danger">{{ form.middle_name.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Last Name Field -->
+            <div class="input-box">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+                <i class="user-icon"></i>
+                {% if form.last_name.errors %}
+                    <div class="text-danger">{{ form.last_name.errors }}</div>
+                {% endif %}
+            </div>
+            <!-- Email Field -->
+            <div class="input-box">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                <i class="email-icon"></i>
+                {% if form.email.errors %}
+                    <div class="text-danger">{{ form.email.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Password1 Field -->
+            <div class="input-box">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                <i class="lock-icon"></i>
+                {% if form.password1.errors %}
+                    <div class="text-danger">{{ form.password1.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Password2 Field -->
+            <div class="input-box">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                
+                {% if form.password2.errors %}
+                    <div class="text-danger">{{ form.password2.errors }}</div>
+                {% endif %}
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-reg">Register</button>
+        </form>
+
+    </div>
+
+    <!-- Scripts for Bootstrap and HTMX -->
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
+    <script src="{% static 'js/auto_capital.js' %}"></script>
+    <script src="{% static 'js/register-alert_sec.js' %}"></script>
+</body>
+</html>

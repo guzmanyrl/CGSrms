@@ -1,0 +1,263 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'unfold/css/unfold.css' %}">
+    <script src="{% static 'unfold/js/unfold.js' %}"></script>
+
+    <style>
+        /* Custom Green Base Theme */
+        body {
+            background: url('{% static "images/CGS.jpg" %}') no-repeat center center fixed; 
+            background-size: cover;
+            font-family: "Poppins", sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .unfold-login {
+            width: 420px;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for the login panel */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+
+        .unfold-logo {
+            width: 120px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .unfold-heading {
+            font-size: 2rem;
+            color: #28a745; /* Green color for the header */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .unfold-form-group {
+            margin-bottom: 20px;
+        }
+
+        .unfold-form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 8px;
+            background-color: #fff;
+            color: #333;
+            box-sizing: border-box;
+            padding-left: 40px; /* Space for icons */
+            background-repeat: no-repeat;
+            background-position: 10px center; /* Position the icon */
+        }
+
+        .unfold-form-group input:focus {
+            border-color: #28a745;
+            outline: none;
+        }
+
+        .unfold-form-group label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            display: block;
+            position: relative;
+        }
+
+        .unfold-form-group.username input {
+            background-image: url("{% static 'images/user-circle.svg' %}"); /* Icon for username */
+        }
+
+        .unfold-form-group.password input {
+            background-image: url("{% static 'images/key.svg' %}"); /* Icon for password */
+        }
+
+        .unfold-btn-primary {
+            background-color: #28a745; /* Green button */
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 50%;
+            position: relative;
+            padding-left: 40px; /* Space for the arrow icon */
+        }
+
+        .unfold-btn-primary:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+       .unfold-btn-primary::before {
+            content: '';
+            display: inline-block;
+            width: 60px; /* Desired width */
+            height: 20px; /* Desired height */
+            background-image: url("{% static 'images/box-arrow-in-right.svg' %}");
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+
+        .unfold-link {
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .unfold-link:hover {
+            text-decoration: underline;
+        }
+
+        .unfold-alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            opacity: 1; /* Fully visible initially */
+            transition: opacity 1s ease-out;
+        }
+
+        .unfold-alert-error.hidden {
+            opacity: 0; /* Makes the error message invisible */
+            pointer-events: none; /* Disables interaction with the hidden element */
+        }
+
+        .unfold-alert-error p {
+            margin: 0;
+             
+           
+        }
+        /* Flexbox container to align the text and logo */
+        .site-name {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.5rem;  /* Adjust size as needed */
+            color: #fff; /* Text color */
+            margin-bottom: 0;
+        }
+
+        .college-name {
+            font-weight: bold;
+            margin-left: 10px; /* Space between the text and the logo */
+        }
+
+        .pit-logo {
+            width: 80px;  /* Adjust size as needed */
+            height: auto;
+            margin-left: 15px; /* Space between the text and logo */
+        }
+
+        /* Optional: Adjust branding container */
+        .branding-container {
+            text-align: center;
+        }
+
+       
+    </style>
+
+    <script>
+        // Set a timer to remove the error message after 5 seconds
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const errorElement = document.querySelector('.unfold-alert-error');
+            if (errorElement) {
+                setTimeout(() => {
+                    errorElement.classList.add('hidden'); // Add the hidden class to fade it out
+                }, 5000); // Time in milliseconds (5000ms = 5 seconds)
+            }
+        });
+
+    </script>
+{% endblock %}
+
+{% block title %}CGS Administration{% endblock %}
+
+
+
+{% block bodyclass %}{{ block.super }} login{% endblock %}
+{% block usertools %}{% endblock %}
+{% block nav-sidebar %}{% endblock %}
+{% block content_title %}{% endblock %}
+{% block nav-breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="unfold-login">
+    <div class="unfold-branding">
+        <h5  class="unfold-heading">College</h5>
+        <h5  class="unfold-heading">of</h5>
+        <h5  class="unfold-heading">Graduate Studies</h5>
+        <img src="{% static 'images/CGS_logo.png' %}" alt="Logo" class="unfold-logo">
+        <h1 class="unfold-heading">Login Admin</h1>
+    </div>
+
+    {% if form.errors and not form.non_field_errors %}
+    <div class="unfold-alert unfold-alert-error">
+        {% blocktranslate count counter=form.errors.items|length %}
+            Please correct the error below.
+        {% plural %}
+            Please correct the errors below.
+        {% endblocktranslate %}
+    </div>
+    {% endif %}
+
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <div class="unfold-alert unfold-alert-error">
+        {{ error }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <form action="{{ app_path }}" method="post" id="login-form" class="unfold-form">
+        {% csrf_token %}
+        <div class="unfold-form-group username">
+            {{ form.username.errors }}
+            {{ form.username.label_tag }}
+            <input type="text" name="username" id="id_username" class="form-control" placeholder="Username" value="{{ form.username.value|default:'' }}">
+        </div>
+        <div class="unfold-form-group password">
+            {{ form.password.errors }}
+            {{ form.password.label_tag }}
+            <input type="password" name="password" id="id_password" class="form-control" placeholder="Password">
+            <input type="hidden" name="next" value="{{ next }}">
+        </div>
+        {% url 'admin_password_reset' as password_reset_url %}
+        {% if password_reset_url %}
+        <div class="unfold-form-group">
+            <a href="{{ password_reset_url }}" class="unfold-link">
+                {% translate 'Forgotten your password or username?' %}
+            </a>
+        </div>
+        {% endif %}
+        <div class="unfold-form-actions">
+            <button type="submit" class="unfold-btn unfold-btn-primary">
+                {% translate 'Log in' %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

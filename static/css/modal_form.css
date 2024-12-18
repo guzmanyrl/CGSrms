@@ -1,0 +1,55 @@
+
+.modal-content h5{
+    padding: 0.50em;
+    color: rgb(0, 194, 162) ;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+   
+}
+
+
+
+.custom-modal-header,
+.custom-modal-footer {
+    border-radius: 16px; /* Adjust to your preferred radius */
+}
+
+.form-label-id,
+.form-label-fname,
+.form-label-lname,
+.form-label-midname,
+.form-label-sex,
+.form-label-semesters,
+.form-label-sy,
+.form-label-progs,
+.form-label-majors,
+.form-label-studenttype {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+}
+
+.id_form,
+.first_name,
+.last_name,
+.middle_name,
+.sex,
+.Semesters,
+.SY,
+.progs,
+.majors,
+.student_type {
+    width: 20rem;
+    
+}
+
+.btn-add {
+    position: absolute;
+    top: 28em;
+    
+}
+
+.modal.fade .form-label {
+    color: initial !important;
+}

@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Doctoral Page{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/doctoral.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal_form.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="doc-title">
+    <img src="{% static 'images/phd-icon.svg' %}" alt="doctoral-icon" class='phd-icon'>
+    <h1>Doctoral Students Information</h1>
+</div>
+
+
+
+<div class="btn-location">
+    <button type="button" class="btn btn-primary add-btn" 
+        hx-get="{% url 'CGS_Records:add_doctoral_student' %}" 
+        hx-target="#dialog" data-bs-toggle="modal" data-bs-target="#modal">
+        <img src="{% static 'images/add-person.svg' %}" alt="Add person" class="add-person">
+        <label>Add Student</label>
+    </button>
+</div>
+
+<div class="search-group">
+    <input type="text" id="searchInput" placeholder="Search by Student ID, First Name, or Last Name" onkeyup="filterTable()" aria-label="Search" />
+    <button class="btn-search btn btn-primary" type="button">
+        <img src="{% static 'images/search.svg' %}" alt="Search" class='search-icon'>
+    </button>
+</div>
+
+<form id="filterForm" method="GET" hx-get="{% url 'CGS_Records:doctoral_list' %}" hx-target="#student-list" hx-push-url="true">
+    <!-- Programs Filter -->
+    <select name="programs" id="filterPrograms" class="form-select">
+        <option value="">Filter by Program</option>
+        <option value="PhD. Education" {% if 'PhD. Education' == request.GET.programs %}selected{% endif %}>PhD. Education</option>
+        <option value="PhD. Technology Management" {% if 'PhD. Technology Management' == request.GET.programs %}selected{% endif %}>PhD. Technology Management</option>
+        <option value="Doctor of Management" {% if 'Doctor of Management' == request.GET.programs %}selected{% endif %}>Doctor of Management</option>
+    </select>
+
+   
+
+    <!-- Student Type Filter -->
+    <select name="student_type" id="filterStudentType" class="form-select">
+        <option value="">Filter by Student Type</option>
+        <option value="Freshman" {% if 'Freshman' == request.GET.student_type %}selected{% endif %}>Freshman</option>
+        <option value="Old" {% if 'Old' == request.GET.student_type %}selected{% endif %}>Old</option>
+        <option value="Transferee" {% if 'Transferee' == request.GET.student_type %}selected{% endif %}>Transferee</option>
+        <option value="Returnee" {% if 'Returnee' == request.GET.student_type %}selected{% endif %}>Returnee</option>
+        <option value="Continuing" {% if 'Continuing' == request.GET.student_type %}selected{% endif %}>Continuing</option>
+        <option value="Part-time" {% if 'Part-time' == request.GET.student_type %}selected{% endif %}>Part-time</option>
+        <option value="Full-time" {% if 'Full-time' == request.GET.student_type %}selected{% endif %}>Full-time</option>
+        <option value="Finishing" {% if 'Finishing' == request.GET.student_type %}selected{% endif %}>Finishing</option>
+        <option value="Foreign" {% if 'Foreign' == request.GET.student_type %}selected{% endif %}>Foreign</option>
+    </select>
+
+ 
+    <button type="submit" class="btn btn-primary" 
+        hx-get="{% url 'CGS_Records:doctoral_list' %}" 
+        hx-include="#filterForm" 
+        hx-target="#student-list">
+        Apply
+    </button>
+</form>
+
+
+<br>
+
+<div class="table-responsive">
+    <table class="table table-primary text-center">
+        <thead>
+            <tr class="bg-primary text-center">
+                <th>Student ID's</th>
+                <th>First Names</th>
+                <th>Last Names</th>
+                <th>Middle Names</th>
+                <th>Genders</th>
+                <th>Semesters</th>
+                <th>School Years</th>
+                <th>Programs</th>
+                <th>Student Types</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="student-list"
+            hx-trigger="load, studentListChanged from:body"
+            hx-get="{% url 'CGS_Records:doctoral_list' %}?{{ request.GET.urlencode }}"
+            hx-target="#student-list"
+            hx-push-url="true">
+            {% include 'CGS/doctoral_list.html' %}
+        </tbody>
+
+    </table>
+</div>
+
+<!-- Placeholder for the modal -->
+<div id="modal" class="modal fade" tabindex="-1">
+    <div id="dialog" class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <!-- Modal content will be dynamically loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Empty toast to show the message -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="toast" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div id="toast-body" class="toast-body"></div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <script src="{% static 'js/dialog.js' %}"></script>
+    <script src="{% static 'js/toast.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/form_capitalizer.js' %}"></script>
+
+{% endblock %}

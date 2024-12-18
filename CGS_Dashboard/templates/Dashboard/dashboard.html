@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Dashboard Page{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/dashboards.css' %}">
+{% endblock %}
+
+{% block content %}
+    <!-- Statistics Overview -->
+    <div class="statistics-overview">
+        <div class="stats-card">
+            <h3 class="stats-title">Total Doctoral Students</h3>
+            <p class="stats-count">{{ doctoral_total }}</p>
+        </div>
+        <div class="stats-card">
+            <h3 class="stats-title">Total Masteral Students</h3>
+            <p class="stats-count">{{ masteral_total }}</p>
+        </div>
+        <div class="stats-card">
+            <h3 class="stats-title">Total Faculty</h3>
+            <p class="stats-count">{{ total_faculty }}</p>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <!-- Doctoral Students Section -->
+        <h1 class="dashboard-title">Doctoral Students</h1>
+        <div class="filter-container">
+            <form method="GET" action="{% url 'CGS_Dashboard:doctoral_courses_dashboard' %}" class="filter-form">
+                <select name="school_year" class="form-select">
+                    <option value=""> School Year</option>
+                    {% for year in school_year_choices %}
+                    <option value="{{ year.0 }}">{{ year.1 }}</option>
+                    {% endfor %}
+                </select>
+                <select name="doctoral_program" class="form-select">
+                    <option value="">Program</option>
+                    {% for programs in doctoral_program_choices %}
+                    <option value="{{ programs.0 }}">{{ programs.1 }}</option>
+                    {% endfor %}
+                </select>
+                <select name="semester" class="form-select">
+                    <option value=""> Semester</option>
+                    {% for semester in semester_choices %}
+                    <option value="{{ semester.0 }}">{{ semester.1 }}</option>
+                    {% endfor %}
+                </select>
+                <select name="student_type" class="form-select">
+                    <option value=""> Student Type</option>
+                    {% for type in student_type_choices %}
+                    <option value="{{ type.0 }}">{{ type.1 }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn-filter">Proceed</button>
+            </form>
+        </div>
+
+        <div class="cards-container">
+            {% for programs, count in doctoral_majors_counts.items %}
+            <a href="{% url 'CGS_Dashboard:doctoral_student_list' programs=programs %}?school_year={{ request.GET.school_year }}&programs={{ request.GET.programs }}&semester={{ request.GET.semester }}&student_type={{ request.GET.student_type }}" class="card">
+                <h4 class="card-title">{{ programs }}</h4>
+                <p class="card-subtitle">Total Students</p>
+                <img src="{% static 'images/people.svg' %}" class="card-icon">
+                <p class="card-count">{{ count }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!--Masteral--> 
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">Masteral Students</h1>
+        <div class="filter-container">
+            <form method="GET" action="{% url 'CGS_Dashboard:masteral_courses_dashboard' %}" class="filter-form">
+                <select name="school_year" class="form-select">
+                    <option value=""> School Year</option>
+                    {% for year in school_year_choices %}
+                        <option value="{{ year.0 }}">{{ year.1 }}</option>
+                    {% endfor %}
+                </select>
+                <select name="program" class="form-select">
+                    <option value="">Program</option>
+                    {% for program in masteral_program_choices %}
+                        <option value="{{ program.0 }}">{{ program.1 }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="semester" class="form-select">
+                    <option value=""> Semester</option>
+                    {% for semester in semester_choices %}
+                        <option value="{{ semester.0 }}">{{ semester.1 }}</option>
+                    {% endfor %}
+                </select>
+                <select name="student_type" class="form-select">
+                    <option value=""> Student Type</option>
+                    {% for type in student_type_choices %}
+                        <option value="{{ type.0 }}">{{ type.1 }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn-filter">Proceed</button>
+            </form>
+        </div>
+        <div class="cards-container">
+            {% for majors, count in masteral_majors_counts.items %}
+                <a href="{% url 'CGS_Dashboard:masteral_student_list' majors=majors %}?school_year={{ request.GET.school_year }}&program={{ request.GET.program }}&semester={{ request.GET.semester }}&student_type={{ request.GET.student_type }}" class="card">
+                    <h4 class="card-title">{{ majors }}</h4>
+                    <p class="card-subtitle">Total Students</p>
+                    <img src="{% static 'images/people.svg' %}" class="card-icon">
+                    <p class="card-count">{{ count }}</p>
+                </a>
+            {% endfor %}
+
+            <!-- Special Card for "Master of Management" -->
+            {% if master_of_management_count > 0 %}
+            <a href="{% url 'CGS_Dashboard:master_of_management_list' %}?school_year={{ request.GET.school_year }}&semester={{ request.GET.semester }}&student_type={{ request.GET.student_type }}" class="card special-card">
+                <h4 class="card-title">Master of Management</h4>
+                <p class="card-subtitle">Total Students</p>
+                <img src="{% static 'images/people.svg' %}" class="card-icon">
+                <p class="card-count">{{ master_of_management_count }}</p>
+            </a>
+            {% endif %}
+            
+        </div>
+    </div>
+
+
+
+{% endblock content %}

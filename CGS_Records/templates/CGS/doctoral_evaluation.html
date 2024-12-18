@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Document{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/doctoral-eval.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/PIT_Logo1.png' %}">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.pathname === '/doctoral_evaluation/') {
+                document.body.style.zoom = "125%";
+            }
+        });
+    </script>
+</head>
+<body>
+    {% block content %}
+        <div class="doctoral-upper-title">
+            <div class="header-container">
+                <img src="{% static 'images/pit_logo1.png' %}" alt="PIT Logo" class="pdf-pit-logo">
+                <img src="{% static 'images/CGS_logo.png' %}" alt="CGS Logo" class="pdf-cgs-logo">
+                <div class="text-palompon">
+                    <p class="Republic-title">Republic of the Philippines</p>
+                    <p class="bold-title">PALOMPON INSTITUTE OF TECHNOLOGY</p>
+                    <p class="Leyte-title">Palompon, Leyte</p>
+                    <br>
+                    <p class = "College">COLLEGE OF GRADUATE STUDIES</p>
+                    <p class = "student-eval">STUDENT'S EVALUATION OF GRADES</p>
+                </div>
+            </div>
+        </div>
+
+        
+    {% endblock %}
+</body>
+</html>

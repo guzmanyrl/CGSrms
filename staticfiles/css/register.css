@@ -1,0 +1,218 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../images/CGS.jpg') no-repeat center center/cover;
+}
+
+/* Wrapper for the Form */
+.wrapper1 {
+    font-weight: bold;
+    position: relative;
+    width: 35em;
+    padding: 40px 30px;
+    background: rgba(3, 22, 5, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    left: 35em;
+    padding-bottom: 2%;
+}
+
+.wrapper1 h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #0deed0;
+}
+
+/* Input Box Styling */
+.input-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+.input-box input:focus {
+    border-color: #0deed0;
+}
+
+/* Icon Styling inside the input box */
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Custom Icons */
+.user-icon::before {
+    content: url('../images/user-circle.svg');
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 10px;
+}
+
+.email-icon::before {
+    content: url('../images/envelope-at-fill.svg');
+    width: 15px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+}
+
+.lock-icon::before {
+    content: url('../images/key.svg');
+    width: 20px;
+    height: 20px;
+    position:absolute;
+    top: 2px;
+    right:.2em;
+}
+
+/* Submit Button Styling */
+.control {
+    margin-top: 20px;
+}
+
+.btn-reg {
+    width: 100%;
+    height: 50px;
+    background-color: #0deed0;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+.btn-reg:hover {
+    background-color: #0470eb;
+    color: #fff;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+/* Error Messages */
+.form-errors {
+    background-color: #f8d7da;
+    color: #8a000b;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 20px;
+}
+
+/* Alert Messages Styling */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    position: absolute;
+    /* Position it above the form */
+    top: 10px;
+    /* Distance from the top of the form */
+    left: 50%;
+    /* Center it horizontally */
+    transform: translateX(-50%);
+    /* Ensure it stays centered */
+    width: 80%;
+    /* Width of the alert box */
+    z-index: 9999;
+    /* Ensure it's on top */
+    transition: opacity 3s ease-in-out;
+    /* Transition for fading out */
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #e9d7d9;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Animating messages fading */
+.messages {
+    opacity: 1;
+    /* Fully visible */
+}
+
+.messages.hidden {
+    opacity: 0;
+    /* Fully hidden */
+}
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .wrapper1 {
+        width: 80%;
+        padding: 20px;
+    }
+
+    .btn-reg {
+        font-size: 14px;
+    }
+}
+
+/* Loading Icon Wrapper */
+.loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 82%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    /* Ensures it appears above other elements in .wrapper1 */
+    display: none;
+    /* Initially hidden */
+}
+
+/* Loading GIF Image */
+.loading-icon img {
+    width: 60px;
+    /* Adjust size as needed */
+    height: 60px;
+}

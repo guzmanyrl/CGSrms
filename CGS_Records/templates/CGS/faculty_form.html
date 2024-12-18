@@ -1,0 +1,113 @@
+{% load static %}
+{% load widget_tweaks %}
+
+{% with WIDGET_ERROR_CLASS='is-invalid' %}
+<form hx-post="{{ request.path }}" hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}' class="modal-content" enctype="multipart/form-data">
+  <div class="modal-header">
+    <h5 class="modal-title">Faculty Information</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <!-- Faculty Details Row -->
+    <div class="row mb-3">
+      <div class="col">
+        <label for="{{ form.first_name.id_for_label }}" class="form-label-fname">First Name</label>
+        {% render_field form.first_name class="form-control" placeholder="First Name" %}
+        <div class="invalid-feedback">{{ form.first_name.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.middle_name.id_for_label }}" class="form-label-midname">Middle Name</label>
+        {% render_field form.middle_name class="form-control" placeholder="Middle Name" %}
+        <div class="invalid-feedback">{{ form.middle_name.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.last_name.id_for_label }}" class="form-label-lname">Last Name</label>
+        {% render_field form.last_name class="form-control" placeholder="Last Name" %}
+        <div class="invalid-feedback">{{ form.last_name.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.faculty_id.id_for_label }}" class="form-label-id">Faculty ID</label>
+        {% render_field form.faculty_id class="form-control" placeholder="Faculty ID" %}
+        <div class="invalid-feedback">{{ form.faculty_id.errors|first }}</div>
+      </div>
+      <div class="col">
+        <label for="{{ form.gender.id_for_label }}" class="form-label-gender">Gender</label>
+        {% render_field form.gender class="form-control" %}
+        <div class="invalid-feedback">{{ form.gender.errors|first }}</div>
+      </div>
+    </div>
+
+    <h5 class="mt-4">Upload Files</h5>
+
+    <!-- Faculty TOR File Upload -->
+    <div class="form-group">
+      <label for="faculty_tor_files">Faculty TOR Files</label>
+      <input type="file" id="faculty_tor_files" name="FacultyTOR_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_tor|first }}</div>
+    </div>
+
+    <!-- Faculty Diploma File Upload -->
+    <div class="form-group">
+      <label for="diploma_files">Faculty Diploma Files</label>
+      <input type="file" id="diploma_files" name="Diploma_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_diploma|first }}</div>
+    </div>
+
+    <!-- Faculty Publication File Upload -->
+    <div class="form-group">
+      <label for="faculty_publication_files">Faculty Publication Files</label>
+      <input type="file" id="faculty_publication_files" name="Faculty_Publication_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_publication|first }}</div>
+    </div>
+
+    <!-- Faculty Teaching Load File Upload -->
+    <div class="form-group">
+      <label for="faculty_teaching_load_files">Faculty Teaching Load Files</label>
+      <input type="file" id="faculty_teaching_load_files" name="Faculty_Teaching_Load_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_teaching_load|first }}</div>
+    </div>
+
+    <!-- Faculty Work Load File Upload -->
+    <div class="form-group">
+      <label for="faculty_work_load_files">Faculty Work Load Files</label>
+      <input type="file" id="faculty_work_load_files" name="Faculty_Work_Load_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_work_load|first }}</div>
+    </div>
+
+    <!-- Faculty Course Syllabus File Upload -->
+    <div class="form-group">
+      <label for="faculty_course_syllabus_files">Faculty Course Syllabus Files</label>
+      <input type="file" id="faculty_course_syllabus_files" name="Faculty_Course_Syllabus_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_course_syllabus|first }}</div>
+    </div>
+
+    <!-- Faculty Curriculumn Mapping File Upload -->
+    <div class="form-group">
+      <label for="faculty_curriculumn_files">Faculty Curriculumn Mapping Files</label>
+      <input type="file" id="faculty_curriculumn_files" name="Faculty_Curriculumn_Mapping_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_curriculumn|first }}</div>
+    </div>
+
+    <!-- Faculty Research Presentation Certification File Upload -->
+    <div class="form-group">
+      <label for="faculty_RPC_files">Certificate Files</label>
+      <input type="file" id="faculty_RPC_files" name="Faculty_Research_Presentation_Cert_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_RPC|first }}</div>
+    </div>
+
+    <!-- Faculty Awards File Upload -->
+    <div class="form-group">
+      <label for="faculty_awards_files">Faculty Awards Files</label>
+      <input type="file" id="faculty_awards_files" name="Faculty_Awards_files" class="form-control forms" multiple>
+      <div class="invalid-feedback">{{ form.errors.faculty_awards|first }}</div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      Cancel
+    </button>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
+{% endwith %}

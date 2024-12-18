@@ -1,0 +1,91 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="{% static 'images/PIT_Logo1.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="all">
+        <img src="{% static 'images/PIT_Logo1.png' %}" alt="Logo" class="logo">
+    </div>
+
+    <div class="wrapper" id="wrapper">
+        
+        <!-- Loading Icon -->
+        <div id="loadingIcon" class="loading-icon" style="display: none;">
+            <img src="{% static 'images/loading.gif' %}" alt="Loading...">
+        </div>
+
+        <!-- Message Display Section -->
+       {% if messages %}
+            <ul class="messages" id="message-container" hx-get="{% url 'accounts:clear_messages' %}" hx-trigger="load delay:4s" hx-swap="outerHTML">
+                {% for message in messages %}
+                    {% if message != "Please enter a correct username and password. Note that both fields may be case-sensitive." %}
+                        <li>{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <div class="login-container">
+            <form hx-post="{% url 'accounts:home_login' %}" 
+                hx-target="#wrapper" 
+                hx-swap="outerHTML" 
+                autocomplete="off" 
+                onsubmit="showLoadingIcon()">
+                {% csrf_token %}
+                <h1>Login</h1>
+                <div class="input-box">
+                    {{ form.username.label_tag }}
+                    {{ form.username|add_attrs:"autocomplete='off'"  }}
+                    <i class="user-icon"></i>
+                </div>
+
+                <div class="input-box">
+                    {{ form.password.label_tag }}
+                    {{ form.password|add_attrs:"autocomplete='off'" }}
+                    <i class="lock-icon"></i>
+                </div>
+
+                {% if form.non_field_errors %}
+                    <div class="form-errors">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                
+                <div class="control">
+                    <button type="submit" class="btn">
+                        <img src="{% static 'images/box-arrow-in-right.svg' %}" alt="Login Icon" class="icon">
+                        Login
+                    </button>
+                    <a href="{% url 'accounts:register' %}" class="btn-register">
+                        <img src="{% static 'images/pencil-square.svg' %}" alt="Register Icon" class="icon-reg">
+                        Register
+                    </a>
+                </div>
+            </form>
+            <a href="{% url 'admin:index' %}" class="btn-admin">
+                <img src="{% static 'images/person-fill-gear.svg' %}" alt="Admin Icon" class="icon-admin">
+                Admin
+            </a>
+
+        </div> 
+    </div>
+
+    
+       
+
+    <!-- HTMX Script -->
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+    <script src="{% static 'js/loading-login.js' %}"></script>
+    <script src="{% static 'js/backrestrict.js' %}"></script>
+    <script src="{% static 'js/csrf_token.js' %}"></script>
+    
+</body>
+</html>
